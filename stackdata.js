@@ -10,13 +10,24 @@ Push = (value) => {
   }
 };
 
+pop = () => {
+  if (currentelement > 0) {
+    currentelement--;
+    array.length = currentelement;
+  } else {
+    console.log("stack is empty");
+  }
+};
+
 Push(2);
 Push(3);
 Push(5);
 Push(6);
 Push(7);
-Push(8);
-Push(9);
-Push(10);
+pop();
+pop();
+pop();
+
+//here stack main logic is (first in last out)
 
 console.log(array);
