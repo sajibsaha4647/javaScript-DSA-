@@ -3,22 +3,29 @@ let arrlength = array.length;
 
 push = (val) => {
   array[arrlength] = val;
-  arrlength++;
+  arrlength += 1;
 };
 
 pop = () => {
-  if (arrlength > 0) {
-    arrlength--;
+  if (arrlength != 0) {
+    let removeitem = array[arrlength - 1];
+    arrlength -= 1;
     array.length = arrlength;
+    return removeitem;
   }
 };
 
-push(2);
-push(4);
-push(5);
-push(6);
+reverseStr = (val) => {
+  for (let i = 0; i < val.length; i++) {
+    array.push(val[i]);
+  }
 
-pop();
-pop();
+  for (let i = 0; i < val.length; i++) {
+    console.warn(pop());
+  }
+};
+let val = "sajib";
+let result = val.split("");
+reverseStr(result);
 
 console.log(array);
