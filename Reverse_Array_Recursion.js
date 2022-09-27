@@ -6,7 +6,6 @@ reversearray = (data, start, end) => {
     console.log(start);
     console.log(end);
     console.log("===");
-
     let temp = data[start];
     data[start] = data[end];
     data[end] = temp;
