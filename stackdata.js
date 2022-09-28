@@ -1,3 +1,4 @@
+//stack is lifo = last in fast out
 let array = [];
 let max = 5;
 
@@ -25,8 +26,8 @@ Push(5);
 Push(6);
 Push(7);
 pop();
-pop();
-pop();
+// pop();
+// pop();
 
 //here stack main logic is (first in last out)
 
