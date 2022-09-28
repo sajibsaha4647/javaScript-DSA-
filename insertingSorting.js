@@ -16,7 +16,7 @@ insertionSorting = () => {
     while (j >= 0 && data[j] < current) {
       data[j + 1] = data[j];
       j = j - 1;
-      console.log(j, "j");
+      // console.log(j, "j");
     }
     data[j + 1] = current;
 
