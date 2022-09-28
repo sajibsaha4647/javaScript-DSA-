@@ -6,26 +6,21 @@ push = (val) => {
   arrlength += 1;
 };
 
-pop = () => {
-  if (arrlength != 0) {
-    let removeitem = array[arrlength - 1];
-    arrlength -= 1;
-    array.length = arrlength;
-    return removeitem;
-  }
-};
-
 reverseStr = (val) => {
   for (let i = 0; i < val.length; i++) {
     array.push(val[i]);
   }
-
-  for (let i = 0; i < val.length; i++) {
-    console.warn(pop());
-  }
 };
+
+pop = () => {
+  removeitem = array[arrlength - 1];
+  arrlength -= 1;
+  array.length = arrlength;
+  return removeitem;
+};
+
 let val = "sajib";
 let result = val.split("");
 reverseStr(result);
-
+array.reverse();
 console.log(array);
