@@ -17,4 +17,4 @@ const checkanaGram = (str1, str2) => {
   return true;
 };
 
-console.log(checkanaGram("hellow", "ellowh"));
+console.log(checkanaGram("nila", "anil"));
