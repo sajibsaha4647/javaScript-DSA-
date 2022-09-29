@@ -4,15 +4,21 @@ let given1 = 70;
 let given2 = 40;
 
 getsorting = () => {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length; j++) {
-      if (arr[j] < arr[j + 1] && arr[j] !== given1 && arr[j] !== given2) {
-        temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
-      }
+  //   for (let i = 0; i < arr.length; i++) {
+  for (let j = 0; j < arr.length; j++) {
+    if (arr[j] > arr[j + 1] && arr[j] !== given1 && arr[j] !== given2) {
+      temp = arr[j];
+      arr[j] = arr[j + 1];
+      arr[j + 1] = temp;
+      j = -1;
     }
+    console.log(j);
+    console.log("==========");
+    console.log(arr[j]);
   }
+  //   }
 };
 getsorting();
 console.log(arr);
+
+//[203, 40, 70, 78, 67, 62, 12];
