@@ -36,18 +36,38 @@ class Linkedlist {
     let lead = this.head
     if(index == 1){
       this.head = this.head.next
-    }else{
+    }
+    else{
       while(counter<index-1){
         lead = lead.next
         counter++
-      
       }
     }
+
     let newnode = lead.next.next
     lead.next = newnode
    
+    
+  }
+
+  insertNode = (index,value) =>{
+
+   let counter = 1
+    let currennode = this.head
+
+    while(counter<index){
+      counter ++
+      currennode = currennode.next
+    }
+
+    let nextnode = currennode.next
+    currennode.next={
+      value:value,
+      next:nextnode
+    }
 
   }
+
 
 }
 
@@ -58,5 +78,6 @@ list.appendform(4);
 list.appendform(5);
 list.appendform(60);
 list.traversing();
-list.deleteElement(5);
+list.deleteElement(3);
+list.insertNode(1,300000)
 console.log(JSON.stringify(list));
