@@ -68,6 +68,25 @@ class Linkedlist {
 
   }
 
+  searchNode = (data)=>{
+    let result  = undefined
+    let loop = true
+    let lead = this.head
+
+    while(loop){
+      lead = lead.next
+      loop = !!lead
+      if(loop && lead.value == data){
+        loop = false
+        result = lead
+        console.warn("result")
+      }
+
+
+    }
+    console.log(result,"result")
+  }
+
 
 }
 
@@ -80,4 +99,5 @@ list.appendform(60);
 list.traversing();
 list.deleteElement(3);
 list.insertNode(1,300000)
-console.log(JSON.stringify(list));
+list.searchNode(60)
+// console.log(JSON.stringify(list));
