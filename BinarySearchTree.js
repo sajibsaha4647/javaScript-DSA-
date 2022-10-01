@@ -11,17 +11,19 @@ class Node{
 class BinarySearchTree {
 
     constructor(){
-        this.root == null
-    }
+        this.root = 56 
+       }
 
-    isrootnull = ()=>{
-
+    isRootEmpty = ()=>{
+       return this.root === null
     }
 
 
 }
 
 
-let bst = BinarySearchTree()
+let bst = new BinarySearchTree()
 
-let node = Node()
+console.log(bst.isRootEmpty())
+
+let node = new Node()
