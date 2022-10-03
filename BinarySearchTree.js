@@ -121,6 +121,7 @@ class BinarySearchTree {
 
   removeData = (value) => {
     this.root = this.deleteNode(this.root, value);
+    // console.log(this.deleteNode(this.root, value), "top");
   };
 
   deleteNode = (root, val) => {
@@ -129,13 +130,10 @@ class BinarySearchTree {
     }
     if (val < root.value) {
       root.left = this.deleteNode(root.left, val);
-      // console.log("step 1");
     } else if (val > root.value) {
-      // console.log("step 1-1");
       root.right = this.deleteNode(root.right, val);
     } else {
       console.log("step 2");
-
       if (!root.left && !root.right) {
         console.log("step 2-1");
         return null;
@@ -146,13 +144,15 @@ class BinarySearchTree {
         console.log("step 2-3");
         return root.left;
       }
-      // console.log(root.value, "check in bottom");
-      console.log(root.right, "check in bottom");
-      console.log(this.getMinValue(root.right.left), "check in bottom");
-      root.value = this.getMinValue(root.right.left);
-      console.log(root.value, "check in end");
-      root.right = this.deleteNode(root.right);
-      // console.log(this.getMinValue(root.value), "check in end");
+
+      root.value = this.getMinValue(root.right);
+      if (this.deleteNode(root.right, root.value) !== null) {
+        root.right = this.deleteNode(root.right, root.value);
+        console.log(
+          this.deleteNode(root.right, root.value),
+          "this.deleteNode(root.right, root.top)"
+        );
+      }
     }
     // console.log(root);
     return root;
@@ -168,14 +168,14 @@ bst.makeTree(11);
 bst.makeTree(30);
 bst.makeTree(40);
 bst.makeTree(23);
-bst.preOrder(bst.root);
-bst.inOrder(bst.root);
-bst.postOrder(bst.root);
-bst.bfsTraversion(bst.root);
-bst.getMinValue(bst.root);
-bst.getMaxvalue(bst.root);
+// bst.preOrder(bst.root);
+// bst.inOrder(bst.root);
+// bst.postOrder(bst.root);
+// bst.bfsTraversion(bst.root);
+// bst.getMinValue(bst.root);
+// bst.getMaxvalue(bst.root);
 // bst.getDeleteNode(5);
-bst.removeData(20);
+bst.removeData(10);
 // console.log(bst.searchNode(bst.root, 900));
 
 console.log(JSON.stringify(bst), "full class");
