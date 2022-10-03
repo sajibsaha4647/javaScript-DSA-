@@ -102,23 +102,60 @@ class BinarySearchTree {
   };
 
   getMinValue = (root) => {
-    if (root !== null) {
-      if (root.left !== null) {
-        this.getMinValue(root.left);
-      } else {
-        console.warn(root.value, "this is minimum number");
-      }
+    if (!root.left) {
+      // console.warn(root.value, "this is mini number");
+      return root.value;
+    } else {
+      this.getMinValue(root.left);
     }
   };
 
   getMaxvalue = (root) => {
-    if (root !== null) {
-      if (root.right !== null) {
-        this.getMaxvalue(root.right);
-      } else {
-        console.warn(root.value, "this is maximum number");
-      }
+    if (!root.right) {
+      // console.warn(root.value, "this is maximum number");
+      return root.value;
+    } else {
+      this.getMaxvalue(root.right);
     }
+  };
+
+  removeData = (value) => {
+    this.root = this.deleteNode(this.root, value);
+  };
+
+  deleteNode = (root, val) => {
+    if (root === null) {
+      return null;
+    }
+    if (val < root.value) {
+      root.left = this.deleteNode(root.left, val);
+      // console.log("step 1");
+    } else if (val > root.value) {
+      // console.log("step 1-1");
+      root.right = this.deleteNode(root.right, val);
+    } else {
+      console.log("step 2");
+
+      if (!root.left && !root.right) {
+        console.log("step 2-1");
+        return null;
+      } else if (!root.left) {
+        console.log("step 2-2");
+        return root.right;
+      } else if (!root.right) {
+        console.log("step 2-3");
+        return root.left;
+      }
+      // console.log(root.value, "check in bottom");
+      console.log(root.right, "check in bottom");
+      console.log(this.getMinValue(root.right.left), "check in bottom");
+      root.value = this.getMinValue(root.right.left);
+      console.log(root.value, "check in end");
+      root.right = this.deleteNode(root.right);
+      // console.log(this.getMinValue(root.value), "check in end");
+    }
+    // console.log(root);
+    return root;
   };
 }
 
@@ -137,6 +174,8 @@ bst.postOrder(bst.root);
 bst.bfsTraversion(bst.root);
 bst.getMinValue(bst.root);
 bst.getMaxvalue(bst.root);
+// bst.getDeleteNode(5);
+bst.removeData(20);
 // console.log(bst.searchNode(bst.root, 900));
 
-// console.log(JSON.stringify(bst), "full class");
+console.log(JSON.stringify(bst), "full class");
