@@ -72,6 +72,8 @@ class BinarySearchTree {
   };
 
   postOrder = (root) => {
+    //start from left=> bottom and then right bottom then root make cycle complete
+    // then right cycle complete with same condition
     if (root !== null) {
       this.postOrder(root.left);
       this.postOrder(root.right);
