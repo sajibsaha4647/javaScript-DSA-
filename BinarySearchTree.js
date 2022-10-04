@@ -120,43 +120,55 @@ class BinarySearchTree {
   };
 
   removeData = (value) => {
-    this.root = this.deleteNode(this.root, value);
-    // console.log(this.deleteNode(this.root, value), "top");
+    this.root = this.removeNode(this.root, value);
   };
 
-  deleteNode = (root, val) => {
-    if (root === null) {
-      return null;
+  findMinNode(node) {
+    // if left of a node is null
+    // then it must be minimum node
+    if (node.left === null) return node;
+    else return this.findMinNode(node.left);
+  }
+
+  removeNode(node, key) {
+    if (node === null) return null;
+    else if (key < node.value) {
+      node.left = this.removeNode(node.left, key);
+      return node;
     }
-    if (val < root.value) {
-      root.left = this.deleteNode(root.left, val);
-    } else if (val > root.value) {
-      root.right = this.deleteNode(root.right, val);
-    } else {
-      console.log("step 2");
-      if (!root.left && !root.right) {
-        console.log("step 2-1");
-        return null;
-      } else if (!root.left) {
-        console.log("step 2-2");
-        return root.right;
-      } else if (!root.right) {
-        console.log("step 2-3");
-        return root.left;
+
+    // if data to be delete is greater than
+    // roots data then move to right subtree
+    else if (key > node.value) {
+      node.right = this.removeNode(node.right, key);
+      return node;
+    }
+
+    // if data is similar to the root's data
+    // then delete this node
+    else {
+      // deleting node with no children
+      if (node.left === null && node.right === null) {
+        node = null;
+        return node;
       }
 
-      root.value = this.getMinValue(root.right);
-      if (this.deleteNode(root.right, root.value) !== null) {
-        root.right = this.deleteNode(root.right, root.value);
-        console.log(
-          this.deleteNode(root.right, root.value),
-          "this.deleteNode(root.right, root.top)"
-        );
+      // deleting node with one children
+      if (node.left === null) {
+        node = node.right;
+        return node;
+      } else if (node.right === null) {
+        node = node.left;
+        return node;
       }
+
+      var aux = this.findMinNode(node.right);
+      node.value = aux.value;
+
+      node.right = this.removeNode(node.right, aux.value);
+      return node;
     }
-    // console.log(root);
-    return root;
-  };
+  }
 }
 
 let bst = new BinarySearchTree();
@@ -175,7 +187,7 @@ bst.makeTree(23);
 // bst.getMinValue(bst.root);
 // bst.getMaxvalue(bst.root);
 // bst.getDeleteNode(5);
-bst.removeData(10);
+bst.removeData(20);
 // console.log(bst.searchNode(bst.root, 900));
 
 console.log(JSON.stringify(bst), "full class");
