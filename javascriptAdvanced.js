@@ -62,4 +62,84 @@
 //here !true means 0 and -true means -1
 
 // 13
-console.log(true+ +"10") //11
+// console.log(true+ +"10") //11
+
+// 14
+// let data = {name:"sajib"}
+// console.log(delete data.name)//true
+// console.log( data)//{}
+
+// 15
+// let data = 10
+// console.log(delete data) //return false
+
+//16
+// let array = ["sajib","rony","roy"]
+// let [y,x,z] = array 
+//de strucrture of an array
+// console.log(z) //roy
+// console.log(y)//sajib
+// console.log(x)//rony
+
+// 17
+// let newobj = {name:"sajib",age:"45",home:"dhaka"}
+// let {name,b,c} = newobj
+// //destructure of an object
+// console.log(name)
+
+//18
+// let newobj = {name:"sajib",age:"45",home:"dhaka"}
+// let newobj2 = {name:"sajib",age1:"452",home1:"dhaka2"}
+// newobj = {...newobj,...newobj2}
+// console.log(newobj)
+//copy all object in a existing obj
+// {
+//     name: 'sajib',
+//     age: '45',
+//     home: 'dhaka',
+//     name1: 'sajib2',
+//     age1: '452',
+//     home1: 'dhaka2'
+//   }
+
+//19
+// let data = false || {} || null 
+// //this data works with positive value first {} and then null and then false
+//if all value are false then it takes last value 
+// console.log(data) //{}
+
+// 20
+// let data = false || {} || []|| true|| ''
+// console.log(data) //{}
+
+// 21
+// console.log(Promise.resolve(5)) 
+// Promise { 5 }
+
+// 22
+// console.log('\u2665'==='\u2665')
+
+// 23
+// JSON.parse() //converted JSON to a javascript value
+
+//24
+// let names = "sajib"
+
+// getname =()=>{
+//     console.log(names) //undefined error(Cannot access 'names')
+//if only the global names then its will print sajib
+//     let names = "saha"
+// }
+
+// getname()
+
+//25
+// const sum =(a,b,c)=>{
+// return a+b+c
+// }
+// console.log(sum(...[1,2,3]))
+
+//26
+
+
+
