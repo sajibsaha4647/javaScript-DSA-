@@ -25,7 +25,7 @@
 // console.log(z) //1 2 3 4 ans
 
 //5
-// console.log(typeof NaN) //not a number 
+// console.log(typeof NaN) //not a number
 
 //6
 // let data = 10 - (-10)
@@ -58,7 +58,7 @@
 // console.log(typeof a) //return undefine
 
 //12
-// console.log(!true - true) //-1 
+// console.log(!true - true) //-1
 //here !true means 0 and -true means -1
 
 // 13
@@ -75,7 +75,7 @@
 
 //16
 // let array = ["sajib","rony","roy"]
-// let [y,x,z] = array 
+// let [y,x,z] = array
 //de strucrture of an array
 // console.log(z) //roy
 // console.log(y)//sajib
@@ -103,9 +103,9 @@
 //   }
 
 //19
-// let data = false || {} || null 
+// let data = false || {} || null
 // //this data works with positive value first {} and then null and then false
-//if all value are false then it takes last value 
+//if all value are false then it takes last value
 // console.log(data) //{}
 
 // 20
@@ -113,7 +113,7 @@
 // console.log(data) //{}
 
 // 21
-// console.log(Promise.resolve(5)) 
+// console.log(Promise.resolve(5))
 // Promise { 5 }
 
 // 22
@@ -140,6 +140,41 @@
 // console.log(sum(...[1,2,3]))
 
 //26
+// let names = "this is bdtask";
+// console.log(!typeof names === "object");//false
+// console.log(!typeof names === "string");//false
+// console.log(!typeof names);//false
+// console.log(!typeof names);//false
+// console.log(typeof names === "object"); //false
+// console.log(typeof names === "string"); //true
 
+//27
+// let obj = { nam: "sajib" };
+// Object.seal(obj);
+// //fer using seal operation can not add new poperty in this object only modify is allow existing
+// obj.age = 24;
 
+// console.log(obj);
 
+//28
+// let data = [1, 2, 3, 4, 56];
+// //removing first element
+// data.shift();
+// console.log(data);
+
+//29
+// let data = [12, 3, 4, 5, 6, 7];
+// //delete last element
+// data.pop();
+// console.log(data);
+
+//30
+// let data = 31;
+// //check odd or even numner
+// console.log(data % 2);
+
+// 31
+let data = { nam: "sajib" };
+//deleted object values
+delete data.nam;
+console.log(data);
