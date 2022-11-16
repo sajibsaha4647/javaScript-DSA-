@@ -141,5 +141,45 @@
 
 //26
 
+// var addDigits = function (num) {
+
+  
+
+//     if (num < 10) {
+//       return num;
+//     } else {
+//       num = [...num.toString()].reduce((a, c) => a + Number(c),0);
+      
+//       return addDigits(num);
+//     }
+//   };
+
+//   let num = 34;
+
+//   addDigits(num)
 
 
+var isUgly = function(n) {
+    while(n>1){
+        if(n%2==0){
+            n=n/2
+        }
+         else if(n%3==0){
+             n=n/3
+         }
+        else if(n%5==0){
+             n=n/5
+         }
+        else{
+            return false
+        }
+    }
+    if(n==1){
+        return true
+    }
+    else {
+        return false
+    } 
+};
+
+isUgly(6)
