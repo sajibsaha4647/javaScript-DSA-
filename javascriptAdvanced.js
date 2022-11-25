@@ -166,27 +166,77 @@
 //   addDigits(num)
 
 
-var isUgly = function(n) {
-    while(n>1){
-        if(n%2==0){
-            n=n/2
+// var isUgly = function(n) {
+//     while(n>1){
+//         if(n%2==0){
+//             n=n/2
+//         }
+//          else if(n%3==0){
+//              n=n/3
+//          }
+//         else if(n%5==0){
+//              n=n/5
+//          }
+//         else{
+//             return false
+//         }
+//     }
+//     if(n==1){
+//         return true
+//     }
+//     else {
+//         return false
+//     } 
+// };
+
+// isUgly(6)
+
+
+var calPoints = function(ops) {
+    const stack = [];
+
+    
+    for(var i=0; i<ops.length; i++){
+        
+        switch(ops[i]){
+            case 'D': 
+            {
+                const last = stack[stack.length - 1];
+                stack.push(last * 2);
+                break;
+            }
+                
+            case 'C':{
+                stack.pop();
+                break;
+            }
+                
+            case '+': {
+                const one = stack[stack.length - 2];
+                const two = stack[stack.length - 1];
+                stack.push(one + two);
+                break;
+            }
+                
+            default: {
+                stack.push(Number(ops[i]))
+                break;
+            }
         }
-         else if(n%3==0){
-             n=n/3
-         }
-        else if(n%5==0){
-             n=n/5
-         }
-        else{
-            return false
-        }
+
+      
     }
-    if(n==1){
-        return true
-    }
-    else {
-        return false
-    } 
+
+  
+ 
+    
+    
+   
+return  stack.reduce((prev, cur) => prev + cur,0);
+    
 };
 
-isUgly(6)
+var ops = ["5","2","C","D","+"]
+
+calPoints(ops)
+
