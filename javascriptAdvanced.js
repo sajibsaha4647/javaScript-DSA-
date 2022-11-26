@@ -192,51 +192,95 @@
 // isUgly(6)
 
 
-var calPoints = function(ops) {
-    const stack = [];
+// var calPoints = function(ops) {
+//     const stack = [];
 
     
-    for(var i=0; i<ops.length; i++){
+//     for(var i=0; i<ops.length; i++){
         
-        switch(ops[i]){
-            case 'D': 
-            {
-                const last = stack[stack.length - 1];
-                stack.push(last * 2);
-                break;
-            }
+//         switch(ops[i]){
+//             case 'D': 
+//             {
+//                 const last = stack[stack.length - 1];
+//                 stack.push(last * 2);
+//                 break;
+//             }
                 
-            case 'C':{
-                stack.pop();
-                break;
-            }
+//             case 'C':{
+//                 stack.pop();
+//                 break;
+//             }
                 
-            case '+': {
-                const one = stack[stack.length - 2];
-                const two = stack[stack.length - 1];
-                stack.push(one + two);
-                break;
-            }
+//             case '+': {
+//                 const one = stack[stack.length - 2];
+//                 const two = stack[stack.length - 1];
+//                 stack.push(one + two);
+//                 break;
+//             }
                 
-            default: {
-                stack.push(Number(ops[i]))
-                break;
-            }
-        }
+//             default: {
+//                 stack.push(Number(ops[i]))
+//                 break;
+//             }
+//         }
 
       
+//     }
+
+// return  stack.reduce((prev, cur) => prev + cur,0);
+    
+// };
+
+// var ops = ["5","2","C","D","+"]
+
+// calPoints(ops)
+
+
+
+// var isHappy = function(n) {
+//     let seen = new Set();
+//  while (n !== 1) {
+//    let total = 0;
+//    while (0 < n) {
+//      total += (n % 10) * (n % 10);
+//      n = Math.floor(n / 10);
+//    }
+ 
+//    if (seen.has(total)) {
+
+//      return false;
+//    } else {
+  
+//      seen.add(total);
+//      n = total;
+//    }
+//  }
+//  return true;
+// };
+
+
+// isHappy(45)
+
+
+
+var capitalizeTitle = function(title) {
+    
+    let splits = title.split(" ")
+
+    for(let i = 0; i<splits.length;i++){
+      let singleword =  splits[i].charAt(0).toUpperCase() + splits[i].slice(1)
+      for(let j = 0; j<singleword.length;j++){
+            
+      }
     }
 
-  
- 
+
+
+    let res = splits.join(" ")
     
-    
-   
-return  stack.reduce((prev, cur) => prev + cur,0);
-    
+    console.log(res)
+
 };
 
-var ops = ["5","2","C","D","+"]
 
-calPoints(ops)
-
+capitalizeTitle("capiTalIze tHe titLe")
