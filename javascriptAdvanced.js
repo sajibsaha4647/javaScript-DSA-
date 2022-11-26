@@ -263,24 +263,58 @@
 
 
 
-var capitalizeTitle = function(title) {
+// var capitalizeTitle = function(title) {
+// // let res =  title
+// //     .toLowerCase()
+// //     .split(" ")
+// //     .map((c) => (c.length > 2 ? c[0].toUpperCase() + c.slice(1) : c))
+// //     .join(" ");
     
-    let splits = title.split(" ")
+//     let splits = title.split(" ")
+    
+//     for(let i = 0; i<splits.length;i++){
+//       splits[i] = splits[i].length > 2 ?  splits[i].charAt(0).toUpperCase() + splits[i].slice(1).toLowerCase() : splits[i].toLowerCase()
+//     }
 
-    for(let i = 0; i<splits.length;i++){
-      let singleword =  splits[i].charAt(0).toUpperCase() + splits[i].slice(1)
-      for(let j = 0; j<singleword.length;j++){
-            
+    
+
+
+//     let res = splits.join(" ").toString()
+
+//     console.log(res)
+    
+
+// };
+
+
+// capitalizeTitle("L hV")
+
+
+// var multiply = function(num1, num2) {
+
+//     let res = Number(num1) * Number(num2)
+
+//   return res.toString()
+    
+// };
+
+// var num1 = "2", num2 = "3"
+
+// multiply(num1,num2)
+
+
+var isLongPressedName = function(name, typed) {
+  let n = 0;
+  let t = 0;
+
+  while(t < typed.length && (typed[t] === name[n] || typed[t] === name[n - 1])) {
+      if (typed[t] === name[n]) {
+          n++;
+          t++;
+      } else {
+          t++;
       }
-    }
+  }
 
-
-
-    let res = splits.join(" ")
-    
-    console.log(res)
-
+  return t === typed.length && n === name.length;
 };
-
-
-capitalizeTitle("capiTalIze tHe titLe")
