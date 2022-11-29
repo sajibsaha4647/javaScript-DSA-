@@ -308,14 +308,24 @@ var isLongPressedName = function(name, typed) {
   let t = 0;
 
   while(t < typed.length && (typed[t] === name[n] || typed[t] === name[n - 1])) {
+
+
       if (typed[t] === name[n]) {
           n++;
           t++;
       } else {
           t++;
       }
+
+     
+
   }
+  console.log(t === typed.length && n === name.length)
 
   return t === typed.length && n === name.length;
 };
 // p 
+
+var name = "palex", typed = "aaleex"
+
+isLongPressedName(name,typed) ;
